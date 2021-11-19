@@ -11,3 +11,7 @@ import './unions';
 
 // The process of moving from a newer or “higher” version of ECMAScript down to an
 // older or “lower” one is sometimes called downleveling.
+
+// Type annotations never change the runtime behavior of your program.
+
+// noImplicitAny = flag any implicit any as an error
