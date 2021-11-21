@@ -4,11 +4,15 @@
 import './best_practices';
 import './classes';
 import './declare';
+import './enum';
 import './functions';
 import './generics';
 import './interfaces';
 import './literal_types';
+import './narrowing';
 import './objects';
+import './primitives_types';
+import './strict_null_checks';
 import './structural_type_system';
 import './type_aliases';
 import './type_assertions';
