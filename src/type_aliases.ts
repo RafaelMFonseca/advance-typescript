@@ -1,5 +1,5 @@
 // A type alias is a name for any type.
-//  If you would like a heuristic, use interface until you need to use features from type.
+// If you would like a heuristic, use interface until you need to use features from type.
 type Vector3 = {
     x: number;
     y: number;
