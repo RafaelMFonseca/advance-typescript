@@ -18,6 +18,8 @@ import './type_aliases';
 import './type_assertions';
 import './unions';
 
+// TypeScript analyzes runtime values using static types.
+
 // Accessing a property that doesn’t exist on an object returns the value undefined:
 
 // The process of moving from a newer or “higher” version of ECMAScript down to an
