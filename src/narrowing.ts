@@ -130,3 +130,26 @@ function swim(input: Fish | Bird) {
 // You may use the type guard isFish to filter an array of Fish | Bird and obtain an array of Fish:
 const zoo: (Fish | Bird)[] = [{} as Fish, {} as Bird, {} as Fish];
 const underWater = zoo.filter(isFish); // underWater = Fish[] because of 'input is Fish' from 'isFish'
+
+// When every type in a union contains a common property with literal types,
+// TypeScript considers that to be a discriminated union, and can narrow out
+// the members of the union.
+interface ItemNormal {
+    type: 'normal';
+    use: () => void;
+}
+
+interface ItemRare {
+    type: 'rare';
+    magic: () => void;
+}
+
+type Item = ItemNormal | ItemRare;
+
+function checkItem(item: Item) {
+    if (item.type === 'normal') {
+        console.log(item.use());
+    } else {
+        console.log(item.magic());
+    }
+}
