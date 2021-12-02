@@ -26,6 +26,7 @@ function filterArray<T, R>(arr: T[], filter: (elem: T) => R) {
 const filteredNumber = filterArray([1, 2, 3], (n) => n > 2);
 
 // Using a constraint to limit the kinds of types that a type parameter can accept.
+// constraints = extends
 function longest<T extends { length: number }>(a: T, b: T) {
     // Return type inference also works on generic functions.
     return (a.length > b.length) ? a : b;
@@ -38,10 +39,7 @@ const l2 = longest("abc", "abcdef"); // l2 = "abc" | "abcdef"
 // @ts-expect-error
 console.log(longest(10, 20)); // ERROR! number type doesn’t have a .length property
 
-function minimumLength<Type extends { length: number }>(
-    obj: Type,
-    minimum: number
-): Type {
+function minimumLength<Type extends { length: number }>(obj: Type, minimum: number): Type { // Returns Type, not { length: number }
     if (obj.length >= minimum) {
         return obj;
     } else {
