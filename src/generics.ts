@@ -17,7 +17,6 @@ function firstOrUndefined<T>(arr: T[]): T | undefined {
 // The type was inferred
 const firstNumber = firstOrUndefined([1, 2, 3]); // firstNumber = number | undefined
 
-
 // We can use multiple type parameters as well.
 function filterArray<T, R>(arr: T[], filter: (elem: T) => R) {
     return arr.filter(filter);
@@ -38,3 +37,17 @@ const l2 = longest("abc", "abcdef"); // l2 = "abc" | "abcdef"
 
 // @ts-expect-error
 console.log(longest(10, 20)); // ERROR! number type doesn’t have a .length property
+
+function minimumLength<Type extends { length: number }>(
+    obj: Type,
+    minimum: number
+): Type {
+    if (obj.length >= minimum) {
+        return obj;
+    } else {
+        // @ts-expect-error
+        return { length: minimum }; // ERROR! because the function promises to return
+                                    // the same kind of object as was passed in, not
+                                    // just some object matching the constraint.
+    }
+}
