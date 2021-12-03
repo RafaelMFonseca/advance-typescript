@@ -3,6 +3,10 @@
 // In those cases, TypeScript will use a never type to represent a 
 // state which shouldn’t exist.
 
+// The never type represents values which are never observed.
+// In a return type, this means that the function throws an exception
+// or terminates execution of the program.
+
 interface Triangle {
     sides: 'three';
 }
@@ -13,6 +17,7 @@ interface Square {
 
 type Form = Triangle | Square;
 
+// never also appears when TypeScript determines there’s nothing left in a union.
 function logSide(form: Form) {
     if (form.sides == 'four') {
         console.log(form.sides);
@@ -52,4 +57,8 @@ function logComplexSide(form: ComplexForm) {
     // @ts-expect-error
     const result: never = form; // ERROR!
     console.log(form); // form = Hexagon
+}
+
+function returnNever(): boolean {
+    return (undefined as never); // OK, can assign never to boolean.
 }

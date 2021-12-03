@@ -3,6 +3,9 @@
 // If every member in a union has a property in common, you can use
 // that property without narrowing.
 
+// Type narrowing is the process of moving a less precise type to a
+// more precise type.
+
 // Within our if check, TypeScript sees typeof input === "string" and
 // understands that as a special form of code called a type guard. 
 

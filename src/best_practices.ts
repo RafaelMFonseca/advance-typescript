@@ -40,3 +40,8 @@ function length1(arr: any) { return arr.length; }
 function length2(arr: any[] | string) { return arr.length; }
 
 // object is not Object. Always use object!
+
+// The global type Function is an untyped function call and is generally best
+// avoided because of the unsafe any return type.
+// If you need to accept an arbitrary function but don’t intend to call it, the
+// type () => void is generally safer.
