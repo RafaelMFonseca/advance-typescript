@@ -5,21 +5,26 @@ import './best_practices';
 import './classes';
 import './declare';
 import './enum';
+import './function_type';
 import './functions';
 import './generics';
 import './interface_vs_type';
 import './interfaces';
 import './literal_types';
 import './narrowing';
-import './neves';
+import './never';
+import './object';
 import './objects';
 import './primitives_types';
+import './rest';
 import './strict_null_checks';
 import './structural_type_system';
 import './this';
 import './type_aliases';
 import './type_assertions';
 import './unions';
+import './unknown';
+import './void';
 
 // TypeScript analyzes runtime values using static types.
 
