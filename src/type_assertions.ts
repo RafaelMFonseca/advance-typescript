@@ -4,7 +4,7 @@ const myCanvas2 = <HTMLCanvasElement>document.getElementById("main_canvas");
 
 // TypeScript only allows type assertions which convert to a more specific or
 // less specific version of a type.
-// You can't convert string to number (for exemple).
+// You can't convert string to number (for example).
 
 // @ts-expect-error
 const x = "32" as number;

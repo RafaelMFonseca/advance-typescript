@@ -1,1 +1,1 @@
-https://www.typescriptlang.org/docs/handbook/2/functions.html#parameter-destructuring
+https://www.typescriptlang.org/docs/handbook/2/objects.html

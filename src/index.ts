@@ -15,6 +15,7 @@ import './narrowing';
 import './never';
 import './object';
 import './objects';
+import './parameter_destructuring';
 import './primitives_types';
 import './rest';
 import './strict_null_checks';

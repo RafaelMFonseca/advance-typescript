@@ -38,7 +38,7 @@ interface Hexagon {
 // is assignable to never (except never itself). T
 let aNonNever: number = 10;
 // @ts-expect-error
-let aNever: never=  undefined;
+let aNever: never = undefined;
 
 aNonNever = aNever; // OKAY! can assign any given `never` value to a number.
 // @ts-expect-error

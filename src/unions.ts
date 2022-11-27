@@ -32,7 +32,7 @@ function getName(entity: MyEntity) {
 
 console.log(getName(persons[0]));
 
-type OddNumbers = 2 | 4 |6 | 8 | 10;
+type OddNumbers = 2 | 4 | 6 | 8 | 10;
 
 const odd: OddNumbers = 4;
 

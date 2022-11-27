@@ -16,7 +16,7 @@
 
 // Analysis of code based on reachability is called control flow analysis
 
-function doSomething(input: string | number) {
+function actuallyDoSomething(input: string | number) {
     if (typeof input === 'string') {
         return `string is ${input}`;
     }
