@@ -39,3 +39,4 @@ import './void';
 
 /** tsconfig.json */
 // noImplicitAny = flag any implicit any as an error
+// strictNullChecks = TypeScript will tell us when we're reading from properties they’re potentially undefined
