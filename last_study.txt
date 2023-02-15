@@ -1,1 +1,1 @@
-https://www.typescriptlang.org/docs/handbook/2/objects.html#readonly-properties
+https://www.typescriptlang.org/docs/handbook/2/objects.html#the-readonlyarray-type

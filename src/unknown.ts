@@ -20,3 +20,12 @@ const u2: unknown = 10;
 if (typeof u2 === 'number') {
     console.log(u2.toFixed()); // OK!
 }
+
+// Use unknown mean that in cases where we already know the type of contents,
+// we’d need to do precautionary checks, or use error-prone type assertions.
+
+const someValue: unknown = "something here";
+
+if (typeof someValue === 'string') {
+    console.log(someValue.toLowerCase()); // OK!
+}

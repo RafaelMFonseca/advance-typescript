@@ -49,3 +49,14 @@ function minimumLength<Type extends { length: number }>(obj: Type, minimum: numb
                                     // just some object matching the constraint.
     }
 }
+
+// Type aliases can also be generic
+type MyBox<T> = { content: T };
+
+// With type aliases we can describe more than just object types,
+// we can also use them to write other kinds of generic helper types.
+type ObjectOrNull<T> = T | null;
+type StringOrNull = ObjectOrNull<string>;
+
+//  Whenever we write out types like number[] or string[], that’s really just
+// a shorthand for Array<number> and Array<string>.
