@@ -57,6 +57,3 @@ type MyBox<T> = { content: T };
 // we can also use them to write other kinds of generic helper types.
 type ObjectOrNull<T> = T | null;
 type StringOrNull = ObjectOrNull<string>;
-
-//  Whenever we write out types like number[] or string[], that’s really just
-// a shorthand for Array<number> and Array<string>.

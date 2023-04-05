@@ -9,6 +9,8 @@ const u1: unknown = {
     }
 };
 
+// Use unknown type to avoid any and enforce type-checking. 
+
 // @ts-expect-error
 console.log(u1.name); // Object is of type 'unknown'.
 

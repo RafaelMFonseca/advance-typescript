@@ -35,7 +35,7 @@ interface Hexagon {
 }
 
 // The never type is assignable to every type; however, no type
-// is assignable to never (except never itself). T
+// is assignable to never (except never itself).
 let aNonNever: number = 10;
 // @ts-expect-error
 let aNever: never = undefined;
