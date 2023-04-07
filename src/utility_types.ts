@@ -34,3 +34,13 @@ const myArrayAssign: Array<number> = myReadonlyArray; // Error: Type 'readonly n
 
 // but you can assign a ReadonlyArray to a regular Array.
 const myReadonlyArrayAssign: ReadonlyArray<number> = myArray;
+
+// -- Record<,>
+
+type SpecialIconType = "home" | "search" | "settings";
+
+const iconMap: Record<SpecialIconType, number> = {
+    home: 1,
+    search: 2,
+    settings: 3,
+};

@@ -62,3 +62,22 @@ function logComplexSide(form: ComplexForm) {
 function returnNever(): boolean {
     return (undefined as never); // OK, can assign never to boolean.
 }
+
+type IconType = 'home' | 'search' | 'settings';
+
+// TypeScript tip: Use “never” to assure every case in a switch is handled.
+function getIcon(icon: IconType) {
+    switch (icon) {
+        case 'home':
+            return 'home';
+        case 'search':
+            return 'search';
+    }
+
+    // @ts-expect-error
+    unhandledIconType(icon); // Error! Argument of type 'string' is not assignable to parameter of type 'never'.
+}
+
+function unhandledIconType(type: never): never {
+    throw new Error(`Unhandled icon type: ${type}`);
+}
