@@ -45,3 +45,11 @@ function length2(arr: any[] | string) { return arr.length; }
 // avoided because of the unsafe any return type.
 // If you need to accept an arbitrary function but don’t intend to call it, the
 // type () => void is generally safer.
+
+// Tuples tend to be created and left un-modified in most code.
+// So annotating types as readonly tuples when possible is a good default.
+const myTuple1: readonly [number, string, boolean] = [1, "hello", true];
+
+// This is also important given that array literals with const assertions will be inferred
+// with readonly tuple types.
+const myTupleReadOnly = [1, "hello", true] as const;
