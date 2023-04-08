@@ -7,7 +7,17 @@ interface Bag<T> {
     get: (key: string) => T;
 }
 
+// you actually treat these parameters(T) as if they could be any and all types.
+// someone using this function could have passed in a number instead, which does not have a .length member.
+function logging<T>(arg: T): T {
+    // @ts-expect-error
+    console.log(arg.length); // Error: T doesn't have .length
+    return arg; 
+}
+
 // In TypeScript, generics are used when we want to declare a type parameter in the signature.
+// Since we’re working with arrays, the .length member should be available. We can describe
+// this just like we would create arrays of other types:
 function firstOrUndefined<T>(arr: T[]): T | undefined {
     return arr[0];
 }
@@ -15,6 +25,8 @@ function firstOrUndefined<T>(arr: T[]): T | undefined {
 // By adding a type parameter Type, we’ve created a link between the input of the function
 // and the output.
 // The type was inferred
+// type argument inference => we want the compiler to set the value of Type for us automatically
+// based on the type of the argument we pass in
 const firstNumber = firstOrUndefined([1, 2, 3]); // firstNumber = number | undefined
 
 // We can use multiple type parameters as well.
@@ -57,3 +69,23 @@ type MyBox<T> = { content: T };
 // we can also use them to write other kinds of generic helper types.
 type ObjectOrNull<T> = T | null;
 type StringOrNull = ObjectOrNull<string>;
+
+// The type of generic functions is just like those of non-generic functions,
+// with the type parameters listed first, similarly to function declarations:
+let myIdentity: <T>(arg: T) => T = (arg) => arg;
+
+// OR we can write the generic type as a call signature of an object literal type:
+let myIdentityTwo: { <T>(arg: T): T } = (arg) => arg;
+
+// OR we can move it to an interface
+interface GenericIdentityFn {
+    <T>(arg: T): T;
+}
+
+// OR we can move the generic parameter to be a parameter of the whole interface
+// This makes the type parameter visible to all the other members of the interface.
+interface GenericIdentityFnTwo<T> {
+    (arg: T): T;
+}
+
+// NOTE: is not possible to create generic enums and namespaces.
