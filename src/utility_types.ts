@@ -44,3 +44,20 @@ const iconMap: Record<SpecialIconType, number> = {
     search: 2,
     settings: 3,
 };
+
+// -- ReturnType<>
+// It takes a function type and produces its return type:
+type AnotherFn = (x: number) => string;
+type AnotherFnReturnType = ReturnType<AnotherFn>; // AnotherFnReturnType is string
+
+// you can just refrer to the type on the ReturnType<>
+
+function anotherFnImpl(x: number): string {
+    return x.toString();
+}
+
+// @ts-expect-error
+type AnotherFnReturnType2 = ReturnType<anotherFnImpl>; // ERROR: values and types aren’t the same thing.
+
+// To refer to the type that the value f has, we use typeof:
+type AnotherFnReturnType3 = ReturnType<typeof anotherFnImpl>; // OK!

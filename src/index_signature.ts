@@ -46,7 +46,6 @@ interface IndexedWithAnimaSubtype {
 }
 
 // The inverse is ok:
-
 interface IndexedWithAnimaCorrectSubtype {
     // numeric indexer is subtype of string indexer here!
     [index: string]: Animal;
