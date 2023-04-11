@@ -89,3 +89,43 @@ interface GenericIdentityFnTwo<T> {
 }
 
 // NOTE: is not possible to create generic enums and namespaces.
+// @ts-expect-error
+enum GenericEnum<T> { // ERROR! Cannot find name 'T'.
+    // @ts-expect-error
+    FirstEnumValue
+}
+
+// Generic constraints
+function doesSomethingWithLength<T extends { length: number }>(arg: T): T {
+    console.log(arg.length);
+    return arg;
+}
+
+doesSomethingWithLength([]); // OK
+doesSomethingWithLength("abc"); // OK
+// @ts-expect-error
+doesSomethingWithLength(10); // ERROR! number does not have a .length property
+
+// Class Types in Generics
+// refer to class types by their constructor functions
+class PersonClass {
+    name: string;
+}
+class StudentClass extends PersonClass {
+    studentId: number;
+}
+
+function factorySomething<T extends { new(): PersonClass }>(ctor: T): PersonClass {
+    return new ctor();
+}
+
+factorySomething(PersonClass).name; // OK
+factorySomething(StudentClass).name; // OK
+// @ts-expect-error
+factorySomething(StudentClass).studentId; // ERROR!
+
+function factorySomethingFixed<T extends PersonClass>(ctor: new () => T): T {
+    return new ctor();
+}
+
+factorySomethingFixed(StudentClass).studentId; // OK
